@@ -1,0 +1,44 @@
+{
+  "name": "liquid-glass-web",
+  "version": "0.0.1",
+  "description": "Configurable live-DOM and WebGL liquid-glass effect for any HTML element.",
+  "private": false,
+  "license": "MIT",
+  "author": "mrmixer67",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrmixer67/liquid-glass-web.git"
+  },
+  "homepage": "https://mrmixer67.github.io/liquid-glass-web/liquid-glass.js",
+  "bugs": {
+    "url": "https://github.com/mrmixer67/liquid-glass-web/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "type": "module",
+  "files": [
+    "public/liquid-glass.js",
+    "src/liquid-glass",
+    "LICENSE",
+    "README.md",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "scripts": {
+    "build": "npm run build:lib",
+    "build:lib": "vite build --config vite.lib.config.js",
+    "lint": "eslint .",
+    "test:unit": "vitest run",
+    "test:serve": "vite --config tests/fixtures/vite.config.js",
+    "test:e2e": "playwright test",
+    "test": "npm run lint && npm run test:unit && npm run build && npm run test:e2e"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.5",
+    "@playwright/test": "1.61.1",
+    "eslint": "9.39.5",
+    "globals": "16.4.0",
+    "vite": "6.4.3",
+    "vitest": "3.2.7"
+  }
+}

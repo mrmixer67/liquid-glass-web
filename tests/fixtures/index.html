@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liquid Glass test fixture</title>
+    <style>
+      * { box-sizing: border-box; }
+      html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+      body { background: #0b1422; font-family: system-ui, sans-serif; }
+      #stage {
+        position: fixed;
+        inset: 0;
+        isolation: isolate;
+        background:
+          linear-gradient(120deg, rgb(38 131 255 / 55%), transparent 42%),
+          repeating-linear-gradient(45deg, #101d30 0 16px, #162840 16px 32px);
+      }
+      #moving-layer {
+        position: absolute;
+        z-index: 1;
+        left: 130px;
+        top: 100px;
+        width: 90px;
+        height: 90px;
+        border-radius: 18px;
+        background: #ff3b72;
+      }
+      #ignored {
+        position: absolute;
+        z-index: 1;
+        left: 240px;
+        top: 120px;
+        width: 86px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border-radius: 10px;
+        color: white;
+        background: #17b890;
+        font-weight: 700;
+      }
+      #glass {
+        position: absolute;
+        z-index: 2;
+        left: 100px;
+        top: 80px;
+        display: grid;
+        place-items: center;
+        color: white;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="stage">
+      <div id="moving-layer"></div>
+      <div id="ignored" class="no-distort">SHARP</div>
+      <div id="glass">CONTENT</div>
+    </main>
+    <script src="/liquid-glass.js"></script>
+    <script>
+      document.documentElement.dataset.fixtureReady = String(Boolean(window.LiquidGlass));
+    </script>
+  </body>
+</html>
